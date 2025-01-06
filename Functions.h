@@ -37,12 +37,12 @@ void SetupScorecard(vector<vector<string>>& ScoreCard, int rows){
     ScoreCard[15][0] = "Chance: ";
     ScoreCard[16][0] = "Low Tot: ";
     ScoreCard[17][0] = "Total: ";
+}
 
-    // for(int i = 0; i < 18; i++){
-    //     for(int j = 1; j < rows; j++){
-    //         ScoreCard[i][j] = "\t";
-    //     }
-    // }
+int RollDice(){
+    
+    int randomNum = rand() % 6 + 1;
+    return randomNum;
 }
 
 #endif

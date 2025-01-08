@@ -45,4 +45,103 @@ int RollDice(){
     return randomNum;
 }
 
+void printDice(int dieFace){
+
+    switch(dieFace){
+        case 1:
+        cout << " _____" << endl;
+        cout << "|     |" << endl;
+        cout << "|  *  |" << endl;
+        cout << "|_____|" << endl;
+        break;
+
+        case 2:
+        cout << " _____" << endl;
+        cout << "|    *|" << endl;
+        cout << "|     |" << endl;
+        cout << "|*____|" << endl;
+        break;
+
+        case 3:
+        cout << " _____" << endl;
+        cout << "|    *|" << endl;
+        cout << "|  *  |" << endl;
+        cout << "|*____|" << endl;
+        break;
+
+        case 4:
+        cout << " _____" << endl;
+        cout << "|*   *|" << endl;
+        cout << "|     |" << endl;
+        cout << "|*___*|" << endl;
+        break;
+
+        case 5:
+        cout << " _____" << endl;
+        cout << "|*   *|" << endl;
+        cout << "|  *  |" << endl;
+        cout << "|*___*|" << endl;
+        break;
+
+        case 6:
+        cout << " _____" << endl;
+        cout << "|*   *|" << endl;
+        cout << "|*   *|" << endl;
+        cout << "|*___*|" << endl;
+        break;
+
+        default:
+        break;
+    };
+}
+
+void turn(){
+    int NumRolls = 0;
+    int DiceLeft = 5;
+    int RollResults[5];
+
+    while(NumRolls < 3){
+
+        for(int i = 0; i < DiceLeft; i++){
+            RollResults[i] = RollDice();
+            printDice(RollResults[i]);
+            NumRolls++;
+        }
+    }
+}
+
+
+
+
 #endif
+
+
+//  _____
+// |     |
+// |  *  |             
+// |_____| 
+
+//  _____
+// |    *|
+// |     |
+// |*____|
+
+//  _____
+// |    *|
+// |  *  |
+// |*____|
+
+//  _____
+// |*   *|
+// |     |
+// |*___*|
+
+//  _____
+// |*   *|
+// |  *  |
+// |*___*|
+
+//  _____
+// |*   *|
+// |*   *|
+// |*___*|

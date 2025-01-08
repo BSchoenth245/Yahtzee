@@ -24,14 +24,11 @@ int main(){
     }
     cout << endl << endl;
     printScorecard(ScoreCard, rows);
+    cout << endl << endl << endl;
 
-    int Die1 = RollDice();
-    int Die2 = RollDice();
-    int Die3 = RollDice();
-    int Die4 = RollDice();
-    int Die5 = RollDice();
+    turn();
 
-    cout << Die1 << endl << Die2 << endl << Die3 << endl << Die4 << endl << Die5 << endl;
+
 
     return 0;
 }

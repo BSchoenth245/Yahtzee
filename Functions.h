@@ -2,6 +2,7 @@
 #define FUNCTIONS_H
 
 #include <iostream>
+#include <algorithm>
 using namespace std;
 
 void printScorecard(vector<vector<string>> ScoreCard, int rows){
@@ -97,21 +98,34 @@ void printDice(int dieFace){
 
 void turn(){
     int NumRolls = 0;
-    int DiceLeft = 5;
-    int RollResults[5];
+    int userFinalDice[5] = {0};
+    int RollResults[5] = {0};
+    string DiceKept = "";
+    string unsavedDice = "12345";
 
     while(NumRolls < 3){
+        
+        for(int i = 0; i < (5 - DiceKept.length()); i++){
+            cout << "unsaved Dice: " << unsavedDice << endl;
 
-        for(int i = 0; i < DiceLeft; i++){
-            RollResults[i] = RollDice();
-            printDice(RollResults[i]);
-            NumRolls++;
+            RollResults[((int)unsavedDice[i] - 49)] = RollDice();
+
         }
+        for(int i = 0; i < 5; i++){
+            printDice(RollResults[i]);
+        }
+            unsavedDice = "12345";
+            cout << "Which dice would you like to keep?" << endl;
+            cout << "EX: 145" << endl;
+            cin >> DiceKept;
+            cout << "Dice kept: " << DiceKept << endl;
+            for(int i = 0; i < DiceKept.length(); i++){
+                unsavedDice.erase(remove(unsavedDice.begin(), unsavedDice.end(), DiceKept[i]), unsavedDice.end());
+            }
+            NumRolls++;
+            
     }
 }
-
-
-
 
 #endif
 

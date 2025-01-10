@@ -38,6 +38,11 @@ void SetupScorecard(vector<vector<string>>& ScoreCard, int rows){
     ScoreCard[15][0] = "Chance: ";
     ScoreCard[16][0] = "Low Tot: ";
     ScoreCard[17][0] = "Total: ";
+    for(int i = 1; i < 18; i++){
+        for(int j = 1; j < rows; j++){
+            ScoreCard[i][j] = "0";
+        }
+    }
 }
 
 int RollDice(){
@@ -96,10 +101,8 @@ void printDice(int dieFace){
     };
 }
 
-void turn(){
+void turn(int RollResults[]){
     int NumRolls = 0;
-    int userFinalDice[5] = {0};
-    int RollResults[5] = {0};
     string DiceKept = "";
     string unsavedDice = "12345";
 
@@ -126,6 +129,113 @@ void turn(){
             
     }
 }
+
+vector<vector<string>> scoring(int userFinalDice[], vector<vector<string>> ScoreCard, int player){
+    int userChoice;
+    int score = 0;
+
+    cout << "How would you like to score your dice?(1-13)" << endl;
+    cout << "1: 1s" << endl;
+    cout << "2: 2s" << endl;
+    cout << "3: 3s" << endl;
+    cout << "4: 4s" << endl;
+    cout << "5: 5s" << endl;
+    cout << "6: 6s" << endl;
+    cout << "7: 3 of a Kind" << endl;
+    cout << "8: 4 of a Kind" << endl;
+    cout << "9: Full House" << endl;
+    cout << "10: Small Straight" << endl;
+    cout << "11: Large Straight" << endl;
+    cout << "12: YAHTZEE" << endl;
+    cout << "13: Choice" << endl;
+    cin >> userChoice;
+
+    switch(userChoice){
+        case 1:
+            //cout << "Entered case 1" << endl;
+            for(int i = 0; i < 5; i++){
+                if(userFinalDice[i] == 1){
+                    score += 1;
+                }
+                //cout << score << endl;
+            }
+            ScoreCard[1][1] = to_string(score);
+            //cout << ScoreCard[1][1] << endl;
+            break;
+        case 2:
+            //cout << "Entered case 2" << endl;
+            for(int i = 0; i < 5; i++){
+                if(userFinalDice[i] == 2){
+                    score += 2;
+                }
+                //cout << score << endl;
+            }
+            ScoreCard[2][1] = to_string(score);
+            //cout << ScoreCard[2][1] << endl;
+            break;
+        case 3:
+            //cout << "Entered case 3" << endl;
+            for(int i = 0; i < 5; i++){
+                if(userFinalDice[i] == 3){
+                    score += 3;
+                }
+                //cout << score << endl;
+            }
+            ScoreCard[3][1] = to_string(score);
+            //cout << ScoreCard[3][1] << endl;
+            break;
+        case 4:
+            //cout << "Entered case 4" << endl;
+            for(int i = 0; i < 5; i++){
+                if(userFinalDice[i] == 4){
+                    score += 4;
+                }
+                //cout << score << endl;
+            }
+            ScoreCard[4][1] = to_string(score);
+            //cout << ScoreCard[4][1] << endl;
+            break;
+        case 5:
+            //cout << "Entered case 5" << endl;
+            for(int i = 0; i < 5; i++){
+                if(userFinalDice[i] == 5){
+                    score += 5;
+                }
+                //cout << score << endl;
+            }
+            ScoreCard[5][1] = to_string(score);
+            //cout << ScoreCard[5][1] << endl;
+            break;
+        case 6:
+            //cout << "Entered case 6" << endl;
+            for(int i = 0; i < 5; i++){
+                if(userFinalDice[i] == 6){
+                    score += 6;
+                }
+                //cout << score << endl;
+            }
+            ScoreCard[6][1] = to_string(score);
+            //cout << ScoreCard[6][1] << endl;
+            break;
+        case 7:
+            break;
+        case 8:
+            break;
+        case 9:
+            break;
+        case 10:
+            break;
+        case 11:
+            break;
+        case 12:
+            break;
+        case 13:
+            break;
+        default:
+            break;
+    };
+return ScoreCard;
+};
 
 #endif
 

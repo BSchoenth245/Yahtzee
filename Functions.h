@@ -3,7 +3,11 @@
 
 #include <iostream>
 #include <algorithm>
+#include <chrono>
+#include <thread>
 using namespace std;
+using namespace std::this_thread;
+using namespace std::chrono;
 
 void printScorecard(vector<vector<string>> ScoreCard, int rows){
     for(int i = 0; i < 18; i++){
@@ -109,15 +113,17 @@ void turn(int RollResults[]){
     while(NumRolls < 3){
         
         for(int i = 0; i < (5 - DiceKept.length()); i++){
-            cout << "unsaved Dice: " << unsavedDice << endl;
+            //cout << "unsaved Dice: " << unsavedDice << endl;
 
             RollResults[((int)unsavedDice[i] - 49)] = RollDice();
 
         }
         for(int i = 0; i < 5; i++){
+            sleep_for(500ms);
             printDice(RollResults[i]);
         }
             unsavedDice = "12345";
+            sleep_for(500ms);
             cout << "Which dice would you like to keep?" << endl;
             cout << "EX: 145" << endl;
             cin >> DiceKept;

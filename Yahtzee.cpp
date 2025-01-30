@@ -1,8 +1,9 @@
 #include <iostream>
 #include <vector>
 #include <ctime>
-#include <cstdlib>
+#include <chrono>
 #include "Functions.h"
+#include <thread>
 using namespace std;
 
 
@@ -33,7 +34,9 @@ int main(){
         cin >> ScoreCard[0][i + 1];
     }
     cout << endl << endl;
+    sleep_for(1000ms);
     printScorecard(ScoreCard, rows);
+    sleep_for(2000ms);
     cout << endl << endl << endl;
 
     turn(userDice);

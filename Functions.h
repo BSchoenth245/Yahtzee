@@ -139,6 +139,7 @@ void turn(int RollResults[]){
 vector<vector<string>> scoring(int userFinalDice[], vector<vector<string>> ScoreCard, int player){
     int userChoice;
     int score = 0;
+    int totalSame = 0;
 
     cout << "How would you like to score your dice?(1-13)" << endl;
     cout << "1: 1s" << endl;
@@ -224,8 +225,55 @@ vector<vector<string>> scoring(int userFinalDice[], vector<vector<string>> Score
             //cout << ScoreCard[6][1] << endl;
             break;
         case 7:
+         cout << "entered case 7" << endl;
+
+            //DOES NOT WORK
+            //FIX LOGIC
+
+            for(int i = 0; i < 5; i++){
+                totalSame = 0;
+                for(int j = i + 1; j < 5; j++){
+                    if(userFinalDice[i] == userFinalDice[j]){
+                        totalSame += 1;
+                        if(totalSame >= 2){
+                            for(int i = 0; i < 5; i++){
+                                score += userFinalDice[i];
+                            }
+                            cout << score << endl;
+                            ScoreCard[9][1] = to_string(score);
+                            cout << ScoreCard[9][1] << endl;
+                            break;
+                        }
+                        else{
+                            score = 0;
+                            cout << ScoreCard[9][1] << endl;
+                            break;
+                        }
+                    }
+                    cout << totalSame << endl;
+                                        
+                }
+            }
             break;
         case 8:
+        for(int i = 0; i < 5; i++){
+                totalSame = 0;
+                for(int j = 1; j < 5; j++){
+                    if(userFinalDice[i] == userFinalDice[j]){
+                        totalSame += 1;
+                        if(totalSame == 3){
+                            for(int i = 0; i < 5; i++){
+                                score += userFinalDice[i];
+                            }
+                            break;
+                        }
+                        else{
+                            score = 0;
+                        }
+                    }
+                }
+            }
+            ScoreCard[10][1] = to_string(score);
             break;
         case 9:
             break;
@@ -234,6 +282,24 @@ vector<vector<string>> scoring(int userFinalDice[], vector<vector<string>> Score
         case 11:
             break;
         case 12:
+        for(int i = 0; i < 5; i++){
+                totalSame = 0;
+                for(int j = 1; j < 5; j++){
+                    if(userFinalDice[i] == userFinalDice[j]){
+                        totalSame += 1;
+                    if(totalSame == 4){
+                        for(int i = 0; i < 5; i++){
+                            score += 50;
+                        }
+                        break;
+                    }
+                    else{
+                        score = 0;
+                    }
+                    }
+                }
+            }
+            ScoreCard[9][1] = to_string(score);
             break;
         case 13:
             break;
